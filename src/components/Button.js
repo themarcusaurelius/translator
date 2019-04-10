@@ -5,15 +5,15 @@ import ColorContext from '../contexts/ColorContext';
 class Button extends React.Component {
     //how to hook up context object to a class component
     //static contextType = LanguageContext;
-    renderSubmit(value) {
-        return value === 'English' ? 'Submit' : '提交'
+    renderSubmit(language) {
+        return language === 'English' ? 'Submit' : '提交'
     }
 
     renderButton(color) {
         return (
             <button className={`ui button ${color}`}>
                 <LanguageContext.Consumer>
-                    {(value) => this.renderSubmit(value)}
+                    {({ language }) => this.renderSubmit(language)}
                 </LanguageContext.Consumer>
             </button>
         );
